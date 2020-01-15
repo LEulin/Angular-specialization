@@ -1,0 +1,17 @@
+<div id="childni">
+    <h2><b>Child Component:</b></h2>
+    <h4>Name: {{info.name}}</h4>
+    <h4>Enrolled: {{info.enrolled ? 'Yes': 'No'}}</h4>
+    <h4>Gender: {{info.gender}}</h4>
+    
+    <button class="btn btn-info" (click)="approved()">Approved</button>&nbsp;&nbsp;
+    <button class="btn btn-danger" (click)="declined()">Decline</button>
+    <br>
+    <br>
+    <h1>List of Approved</h1>
+    <h4 *ngFor="let data of datas">
+        <b>Name:</b> {{data.name}}
+        <b>Status:</b> {{data.enrolled ? 'Yes' : 'No'}}
+        <b>Gender:</b> {{data.gender}}</h4>
+    
+</div>

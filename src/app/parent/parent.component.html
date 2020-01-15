@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 style="text-align:center">Activity 5</h1>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="parentni">
+                    <h2><b>Parent Template:</b></h2>
+                    <h4>Name: <input type="text" [(ngModel)]="name" /></h4>
+                    <h4>Enrolled: <input type="checkbox" [(ngModel)]="enrolled"></h4>
+                    <h4>Gender: <select [(ngModel)]="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select></h4>
+
+                    <br>
+                    <button class="btn btn-primary" (click)="submitinfo()">Submit</button>
+                    <br>
+                    <br>
+                    <p *ngIf="message"> Notification : {{message}}</p>
+                    <br>
+                    <h1>List of Declined</h1>
+                    <h4 *ngFor="let data of dec">
+                            <b>Name:</b> {{data.name}}
+                            <b>Status:</b> {{data.enrolled ? 'Yes' : 'No'}}
+                            <b>Gender:</b> {{data.gender}}</h4>
+                </div>
+
+            </div>
+            <div class="col-sm-6" id="childni">
+                <app-child (messageEvent)="message=$event" (declinedEvent)="dec=$event" [info]="info"></app-child>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
